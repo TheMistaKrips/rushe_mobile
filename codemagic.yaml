@@ -8,9 +8,18 @@ workflows:
       vars:
         BUNDLE_ID: "com.rushe.app"
     scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+          npx expo install
+      
       - name: Prebuild iOS
         script: |
           npx expo prebuild --platform ios --clean
+      
+      - name: Fix Podfile
+        script: |
+          sed -i '' 's/config = use_native_modules!(config_command)/config = use_native_modules!/g' ios/Podfile || true
       
       - name: Install Pods
         script: |
