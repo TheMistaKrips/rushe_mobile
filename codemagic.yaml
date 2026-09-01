@@ -1,0 +1,33 @@
+workflows:
+  ios-build:
+    name: iOS Build
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      groups:
+        - app_store_credentials
+      vars:
+        XCODE_PROJECT: "ios/RushE.xcodeproj"
+        XCODE_SCHEME: "RushE"
+        BUNDLE_ID: "com.rushe.app"
+        APP_NAME: "RushE"
+      node: 20
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Install Expo CLI
+        script: |
+          npm install -g expo-cli
+      - name: Install Expo modules
+        script: |
+          npx expo install
+      - name: Build iOS app
+        script: |
+          npx expo run:ios --configuration Release
+    artifacts:
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.ipa
+    publishing:
+      email:
+        recipients:
+          - fetisovdev0@gmail.com
