@@ -1,22 +1,20 @@
 {
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal",
-      "autoIncrement": true
-    },
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
-      },
-      "autoIncrement": true
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "env": {
+          "GRADLE_USER_HOME": "/tmp/gradle",
+          "GRADLE_OPTS": "-Dorg.gradle.jvmargs=-Xmx4096m -Dorg.gradle.daemon=false"
+        }
+      }
     },
     "production": {
-      "autoIncrement": true
+      "android": {
+        "buildType": "app-bundle"
+      }
     }
-  },
-  "cli": {
-    "appVersionSource": "remote"
   }
 }
