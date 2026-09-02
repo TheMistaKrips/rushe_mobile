@@ -1,0 +1,13 @@
+diff --git a/node_modules/expo-modules-core/android/src/main/java/expo/modules/rncompatibility/ReactNativeFeatureFlags.kt b/node_modules/expo-modules-core/android/src/main/java/expo/modules/rncompatibility/ReactNativeFeatureFlags.kt
+index 1234567..abcdefg 100644
+--- a/node_modules/expo-modules-core/android/src/main/java/expo/modules/rncompatibility/ReactNativeFeatureFlags.kt
++++ b/node_modules/expo-modules-core/android/src/main/java/expo/modules/rncompatibility/ReactNativeFeatureFlags.kt
+@@ -8,7 +8,7 @@
+ internal object ReactNativeFeatureFlags {
+     private val isBridgelessEnabled: Boolean by lazy {
+         try {
+-            ReactNativeFeatureFlags.enableBridgelessArchitecture()
++            // ReactNativeFeatureFlags.enableBridgelessArchitecture() // TEMPORARY FIX
+             true
+         } catch (e: Throwable) {
+             false

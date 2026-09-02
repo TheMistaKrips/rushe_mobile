@@ -1,0 +1,11 @@
+--- a/node_modules/expo-modules-core/android/src/main/java/expo/modules/rncompatibility/ReactNativeFeatureFlags.kt
++++ b/node_modules/expo-modules-core/android/src/main/java/expo/modules/rncompatibility/ReactNativeFeatureFlags.kt
+@@ -8,7 +8,7 @@
+ internal object ReactNativeFeatureFlags {
+     private val isBridgelessEnabled: Boolean by lazy {
+         try {
+-            ReactNativeFeatureFlags.enableBridgelessArchitecture()
++            // ReactNativeFeatureFlags.enableBridgelessArchitecture()
+             true
+         } catch (e: Throwable) {
+             false
